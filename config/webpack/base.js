@@ -25,6 +25,7 @@ const resolveOptions = {
       ".woff",
       ".woff2",
       ".ico",
+      ".scss"
     ],
   },
 };
