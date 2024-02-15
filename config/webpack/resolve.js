@@ -11,8 +11,6 @@ module.exports = {
     constants: absolutePath("src/constants"),
     contexts: absolutePath("src/contexts"),
     reducers: absolutePath("src/reducers"),
-    neetoui: "@bigbinary/neetoui",
-    neetoicons: "@bigbinary/neeto-icons",
     utils: absolutePath("src/utils"),
   },
   extensions: [
