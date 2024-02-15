@@ -87,6 +87,13 @@
     "prettier": "^3.2.5"
   },
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "eslint ./app/javascript"
+  },
+  "babel": {
+    "presets": [
+      "./node_modules/shakapacker/package/babel/preset.js",
+      "@babel/preset-react"
+    ]
   }
 }

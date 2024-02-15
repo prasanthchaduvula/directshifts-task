@@ -5,7 +5,7 @@ const pathGroups = buildPathGroupsBasedOnWebpackAliases({});
 const pathGroupForKeepingReactImportsAtTop = {
   pattern: "react+(-native|)",
   group: "external",
-  position: "before"
+  position: "before",
 };
 
 /*
@@ -31,7 +31,7 @@ pathGroups.push(pathGroupForKeepingReactImportsAtTop);
 
 module.exports = {
   rules: {
-    // auto-fixable: Enforce a convention in module import order - we enforce https://www.bigbinary.com/react-best-practices/sort-import-statements
+    // auto-fixable: Enforce a convention in module import order
     "import/order": [
       "error",
       {
@@ -46,7 +46,7 @@ module.exports = {
           "sibling",
           "parent",
           "object",
-          "type"
+          "type",
         ],
         /*
          * Currently we check for existence of webpack alias
@@ -57,8 +57,8 @@ module.exports = {
          */
         pathGroups,
         // Ignore react imports so that they're always ordered to the top of the file.
-        pathGroupsExcludedImportTypes: ["react", "react-native"]
-      }
-    ]
-  }
+        pathGroupsExcludedImportTypes: ["react", "react-native"],
+      },
+    ],
+  },
 };

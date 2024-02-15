@@ -234,7 +234,7 @@ GEM
       rubocop-ast (>= 1.30.0, < 2.0)
     ruby-progressbar (1.13.0)
     semantic_range (3.0.0)
-    shakapacker (6.6.0)
+    shakapacker (6.0.0)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
@@ -285,7 +285,7 @@ DEPENDENCIES
   redis (~> 4.0)
   rubocop
   rubocop-rails
-  shakapacker (~> 6.6.0)
+  shakapacker (= 6.0.0)
   sprockets-rails
   tzinfo-data
   web-console

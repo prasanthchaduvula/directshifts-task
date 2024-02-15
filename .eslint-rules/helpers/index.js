@@ -2,7 +2,7 @@ const fs = require("fs");
 
 const buildPathGroupsBasedOnWebpackAliases = ({
   customJSRoot = "app/javascript/",
-  customAliasPath = "config/webpack/resolve.js",
+  customAliasPath = "config/webpack/alias.js",
 }) => {
   const rootOfProject = __dirname + `/../../`;
 
@@ -19,7 +19,9 @@ const buildPathGroupsBasedOnWebpackAliases = ({
 
   if (!hasWebpackAliasConfig || !isRailsProject) return emptyPathGroups;
 
-  const { alias } = require(webpackAliasPath);
+  const {
+    resolve: { alias },
+  } = require(webpackAliasPath);
 
   const railsJSFilesRoot = rootOfProject + customJSRoot;
 

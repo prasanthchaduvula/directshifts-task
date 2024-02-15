@@ -18,6 +18,9 @@ module DirectshitsTask
     config.generators do |g|
       g.test_framework :test_unit, fixture: false
     end
+
+    config.react.server_renderer_extensions = ["jsx", "js", "tsx", "ts"]
+
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.

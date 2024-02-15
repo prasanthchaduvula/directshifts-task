@@ -31,8 +31,8 @@ gem "bootsnap", require: false
 
 gem "dotenv-rails"
 
-# For compiling and bundling JavaScript.
-gem "shakapacker", "~> 6.6.0"
+# Webpack bundler for rails
+gem "shakapacker", "6.0.0"
 
 # React hook for rails
 gem "react-rails", "~> 2.7.1"
