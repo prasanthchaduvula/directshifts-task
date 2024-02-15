@@ -33,7 +33,7 @@ development:
 
 test:
   <<: *default
-  database: <%= "directshits_task_test_#{ENV['TEST_ENV_NUMBER']}" %>
+  database: <%= "directshits_task_test" %>
 
 production:
   adapter: mysql2
