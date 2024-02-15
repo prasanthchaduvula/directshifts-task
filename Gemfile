@@ -32,6 +32,9 @@ gem "dotenv-rails"
 # For compiling and bundling JavaScript.
 gem "shakapacker", "~> 6.6.0"
 
+# React hook for rails
+gem 'react-rails', "~> 2.7.1"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
