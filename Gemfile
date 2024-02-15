@@ -29,6 +29,9 @@ gem "bootsnap", require: false
 
 gem "dotenv-rails"
 
+# For compiling and bundling JavaScript.
+gem "shakapacker", "~> 6.6.0"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
