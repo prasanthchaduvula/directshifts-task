@@ -32,10 +32,10 @@ const SignIn = ({ history }) => {
     }
 
     try {
-      const res = await authenticationApi.signin(payload);
-      const { authentication_token, email } =  res.data;
-      authDispatch({ type: "LOGIN", payload: {auth_token: authentication_token, email } });
-      userDispatch({ type: "SET_USER", payload: { user: data } });
+      const res = await authenticationApi.signin({ user: payload });
+      const { auth_token, user } =  res.data;
+      authDispatch({ type: "LOGIN", payload: {auth_token, email: user.email } });
+      userDispatch({ type: "SET_USER", payload: { user } });
       history.push("/");
     } catch (error) {
       Logger.error(error);
