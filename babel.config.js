@@ -34,6 +34,7 @@ module.exports = function (api) {
     ].filter(Boolean),
     plugins: [
       "babel-plugin-macros",
+      "js-logger",
       "@babel/plugin-transform-runtime",
       isTestEnv
         ? "babel-plugin-dynamic-import-node" // tests run in node environment
