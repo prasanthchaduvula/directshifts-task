@@ -29,15 +29,18 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-gem "dotenv-rails"
-
 # Webpack bundler for rails
 gem "shakapacker", "6.0.0"
 
 # React hook for rails
 gem "react-rails", "~> 2.7.1"
 
+# #--- gems for server & infra configuration ---##
+gem "dotenv-rails"
 gem "foreman"
+
+# Use devise for authentication
+gem "devise", "~> 4.9"
 
 # Use Sass to process CSS
 # gem "sassc-rails"
