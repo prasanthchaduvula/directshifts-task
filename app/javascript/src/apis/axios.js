@@ -1,6 +1,6 @@
 import axios from "axios";
-import { toast } from "react-toastify";
 
+import Toastr from "common/Toastr";
 import { getFromLocalStorage } from "utils/storage";
 
 axios.defaults.baseURL = "/";
@@ -31,7 +31,7 @@ const handleSuccessResponse = response => {
   if (response) {
     response.success = response.status === 200;
     if (response.data.notice) {
-      toast.success(response.data.notice);
+      Toastr.success(response.data.notice, { position: "bottom-center" });
     }
   }
 
@@ -41,9 +41,17 @@ const handleSuccessResponse = response => {
 const handleErrorResponse = (error, authDispatch) => {
   if (error.response?.status === 401) {
     authDispatch({ type: "LOGOUT" });
-    toast.error(error.response?.data?.error);
+    Toastr.error(error.response?.data?.error, { position: "bottom-center" });
   } else {
-    toast.error(error.response?.data?.error || error.message);
+    Toastr.error(
+      error.response?.data?.errors ||
+        error.response?.data?.error ||
+        error.response?.data?.notice ||
+        error.message ||
+        error.notice ||
+        "Something went wrong!",
+      { position: "bottom-center" }
+    );
   }
 
   return Promise.reject(error);
