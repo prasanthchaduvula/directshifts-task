@@ -5,4 +5,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable
+
+  validates :first_name, :last_name,
+    presence: true,
+    format: { with: /\A[a-zA-Z\s]+\z/ },
+    length: { maximum: 20 }
 end
