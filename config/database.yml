@@ -29,11 +29,11 @@ default: &default
 
 development:
   <<: *default
-  database: "directshits_task_development"
+  database: "directshifts_task_development"
 
 test:
   <<: *default
-  database: <%= "directshits_task_test" %>
+  database: <%= "directshifts_task_test" %>
 
 production:
   adapter: mysql2
