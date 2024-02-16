@@ -108,6 +108,7 @@ GEM
       railties (>= 6.1)
     erubi (1.12.0)
     execjs (2.9.1)
+    foreman (0.87.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.1)
@@ -277,6 +278,7 @@ DEPENDENCIES
   debug
   dotenv-rails
   erb_lint!
+  foreman
   jbuilder
   mysql2 (~> 0.5)
   puma (~> 5.0)
