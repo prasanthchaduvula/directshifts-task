@@ -10,7 +10,38 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
-const SignIn = () => {
+import Logger from "js-logger";
+
+import { useAuthDispatch } from "../../../contexts/auth";
+import { useUserDispatch } from "../../../contexts/user";
+
+import authenticationApi from "../../../apis/authentication"
+
+const SignIn = ({ history }) => {
+  const authDispatch = useAuthDispatch();
+  const userDispatch = useUserDispatch();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const data = new FormData(event.currentTarget);
+
+    const payload = {
+      email: data.get('email'),
+      password: data.get('password'),
+    }
+
+    try {
+      const res = await authenticationApi.signin(payload);
+      const { authentication_token, email } =  res.data;
+      authDispatch({ type: "LOGIN", payload: {auth_token: authentication_token, email } });
+      userDispatch({ type: "SET_USER", payload: { user: data } });
+      history.push("/");
+    } catch (error) {
+      Logger.error(error);
+    }
+  };
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -28,7 +59,7 @@ const SignIn = () => {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <Box component="form" onSubmit={() => {}} noValidate sx={{ mt: 1 }}>
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
             margin="normal"
             required

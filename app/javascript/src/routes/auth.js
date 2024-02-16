@@ -3,6 +3,10 @@ import SignIn from "components/Authentication/Signin";
 
 export const AUTH_ROUTES = [
   {
+    path: "/",
+    component: SignIn,
+  },
+  {
     path: "/signup",
     component: SignUp,
   },
