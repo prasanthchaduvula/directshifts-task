@@ -11,10 +11,37 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
+import authenticationApi from "../../../apis/authentication"
 import SuccessfulSignup from "./Success";
 
 const SignUp = () => {
   const [isSuccessful, setIsSuccessful] = useState(false);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const data = new FormData(event.currentTarget);
+
+    const payload = {
+      first_name: data.get('firstName'),
+      last_name: data.get('lastName'),
+      email: data.get('email'),
+      password: data.get('password'),
+      password_confirmation: data.get('passwordConfirmation')}
+
+    authenticationApi.signup({ user: payload}).then((response) => {
+      setIsSuccessful(true);
+      console.log(response);
+    }).catch((error) => {
+      setIsSuccessful(false);
+      if (
+        error.response &&
+        error.response.data
+      ) {
+        console.log(error.response.data); // TODO: Show error to the user
+      }
+    });
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -37,7 +64,7 @@ const SignUp = () => {
             <Typography component="h1" variant="h5">
               Sign up
             </Typography>
-            <Box component="form" noValidate onSubmit={()=>{}} sx={{ mt: 3 }}>
+            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextField
