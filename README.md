@@ -9,6 +9,16 @@
 - A user should be able to send a referral email to any email address. The referral email should contain a link that redirects to sign up page.
 - User’s home page should show all the email addresses that were referred.
 
+### Demo
+- Signup
+<img width="1470" alt="Screenshot 2024-02-17 at 7 41 00 PM" src="https://github.com/prasanthchaduvula/directshifts-task/assets/52771571/4427b741-8f4b-4d7f-ac01-3db85aa6a960">
+
+- Signin
+<img width="1470" alt="Screenshot 2024-02-17 at 7 40 29 PM" src="https://github.com/prasanthchaduvula/directshifts-task/assets/52771571/4bac27cc-6371-4d00-9d54-5b582f8548fb">
+
+- Home
+<img width="1470" alt="Screenshot 2024-02-17 at 7 39 02 PM" src="https://github.com/prasanthchaduvula/directshifts-task/assets/52771571/794d7321-007e-4a22-9285-81acfb3eada0">
+
 ## Configuration:
 * Ruby version: 3.2.2 (Note: The assignment email mentioned that we should use ruby 3.0.1 but 3.2.2 is used because 3.0.1 is not maintained and having ruby build issues with latest macos. Thus, chose to go with the 3.2.2)
 
