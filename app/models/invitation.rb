@@ -10,9 +10,6 @@ class Invitation < ApplicationRecord
   private
 
     def send_invitation_mail
-      InvitationMailer.with(
-        recipient: email,
-        sender_name: sender.full_name
-      ).invitation_email.deliver_later
+      InvitationMailer.with(invitation: self).invitation_email.deliver_later
     end
 end

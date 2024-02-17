@@ -2,10 +2,9 @@
 
 class InvitationMailer < ApplicationMailer
   def invitation_email
-    @recipient = params[:recipient]
-    @sender_name = params[:sender_name]
+    @invitation = params[:invitation]
     subject = "You have been invited to DirectShifts"
 
-    mail(to: @recipient, subject:)
+    mail(to: @invitation.email, subject:)
   end
 end
