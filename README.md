@@ -58,7 +58,14 @@ $ bin/setup
 #### Run app in local env
 
 ```bash
-$ bin/setup # If it is not wokring for you then use the below command
+$ bin/dev
+
+# If any permisson errors like below
+# zsh: permission denied: bin/dev
+# or
+# bash : permission denied: bin/dev
+# then do `chmod +x bin/dev`
+# If it is not working for you then use the below command
 ```
 
 or
