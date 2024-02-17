@@ -19,6 +19,10 @@
 - Home
 <img width="1470" alt="Screenshot 2024-02-17 at 7 39 02 PM" src="https://github.com/prasanthchaduvula/directshifts-task/assets/52771571/794d7321-007e-4a22-9285-81acfb3eada0">
 
+- Email Preview with letter opener
+<img width="1470" alt="Screenshot 2024-02-17 at 8 00 31 PM" src="https://github.com/prasanthchaduvula/directshifts-task/assets/52771571/43f5a61b-de52-481d-acbc-58f479effc27">
+
+
 ## Configuration:
 * Ruby version: 3.2.2 (Note: The assignment email mentioned that we should use ruby 3.0.1 but 3.2.2 is used because 3.0.1 is not maintained and having ruby build issues with latest macos. Thus, chose to go with the 3.2.2)
 
