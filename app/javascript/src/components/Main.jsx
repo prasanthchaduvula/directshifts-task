@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import PropTypes from "prop-types";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import { isPresent } from "utils";
-import { setAuthHeaders, registerIntercepts } from "apis/axios";
+
 import { initializeLogger } from "common/logger";
-import { AUTH_ROUTES, DASHBOARD_ROUTES } from "../routes";
 import { useAuthState, useAuthDispatch } from "contexts/auth";
 import { useUserDispatch, useUserState } from "contexts/user";
 import {
@@ -16,9 +14,9 @@ import {
   getFromLocalStorage,
 } from "utils/storage";
 
-const Main = props => {
-  const [loading, setLoading] = useState(true);
+import { AUTH_ROUTES, DASHBOARD_ROUTES } from "../routes";
 
+const Main = props => {
   const { authToken } = useAuthState();
   const { user: userContextState } = useUserState();
   const userDispatch = useUserDispatch();
@@ -30,8 +28,6 @@ const Main = props => {
   useEffect(() => {
     userDispatch({ type: "SET_USER", payload: { user: props?.user } });
     initializeLogger();
-    registerIntercepts(authDispatch);
-    setAuthHeaders(setLoading);
   }, [authDispatch, props?.user, userDispatch]);
 
   useEffect(() => {
@@ -44,7 +40,7 @@ const Main = props => {
   }, [props?.user?.email]);
 
   const RoutesToRender = () => {
-    if(isLoggedIn){
+    if (isLoggedIn) {
       return DASHBOARD_ROUTES.map(route => (
         <Route
           exact
@@ -52,25 +48,23 @@ const Main = props => {
           key={route.path}
           path={route.path}
         />
-      ))
-    } else {
-      return AUTH_ROUTES.map(route => (
-        <Route
-          exact
-          component={route.component}
-          key={route.path}
-          path={route.path}
-        />
-      ))
+      ));
     }
-  }
+
+    return AUTH_ROUTES.map(route => (
+      <Route
+        exact
+        component={route.component}
+        key={route.path}
+        path={route.path}
+      />
+    ));
+  };
 
   return (
     <BrowserRouter>
       <ToastContainer />
-      <Switch>
-        {RoutesToRender()}
-      </Switch>
+      <Switch>{RoutesToRender()}</Switch>
     </BrowserRouter>
   );
 };

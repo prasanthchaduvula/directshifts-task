@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "./api";
 
 const signin = payload => axios.post("/api/v1/login", payload);
 

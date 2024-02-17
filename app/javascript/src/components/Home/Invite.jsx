@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
 
-import invitationApi from "../../apis/invitation";
+import invitationApi from "apis/invitation";
 
 const Invite = () => {
   const handleSubmit = async event => {

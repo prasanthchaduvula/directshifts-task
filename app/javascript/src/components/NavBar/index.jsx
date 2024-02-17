@@ -9,7 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
-import authenticationApi from "apis/authentication";
+import authenticationApi from "apis/auth";
 import { useAuthDispatch } from "contexts/auth";
 
 const NavBar = () => {

@@ -15,7 +15,7 @@ import Logger from "js-logger";
 import { useAuthDispatch } from "../../../contexts/auth";
 import { useUserDispatch } from "../../../contexts/user";
 
-import authenticationApi from "../../../apis/authentication"
+import authenticationApi from "../../../apis/auth"
 
 const SignIn = ({ history }) => {
   const authDispatch = useAuthDispatch();
