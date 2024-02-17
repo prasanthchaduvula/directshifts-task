@@ -65,6 +65,17 @@ $ brew install mysql
 $ bin/setup
 ```
 
+#### Setting up env for database.yml and others
+
+1. It creates `.env` file by copying `.env.example`
+2. Update the below keys in `.env` with database user name and password of local db.
+  ```bash
+  #Database
+  DB_USER=
+  DB_PASS=
+  ```
+3. Please fell free to add and update any env values.
+
 #### Run app in local env
 
 ```bash
@@ -85,6 +96,11 @@ $ foreman start -f Procfile.dev
 ```
 
 #### Navigate to [http://localhost:3000/](http://localhost:3000/) or [http://0.0.0.0:3000](http://0.0.0.0:3000)
+
+#### To view emails in development, we are using letter_opener gem. Once email is sent, it will open in brower with the email template.
+
+
+
 
 
 ## Testing
