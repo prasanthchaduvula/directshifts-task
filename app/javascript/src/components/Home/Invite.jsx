@@ -7,7 +7,7 @@ import TextField from "@mui/material/TextField";
 
 import invitationApi from "apis/invitation";
 
-const Invite = () => {
+const Invite = ({ fetchInvitations }) => {
   const handleSubmit = async event => {
     event.preventDefault();
 
@@ -21,6 +21,7 @@ const Invite = () => {
     try {
       await invitationApi.create({ invitation: payload });
       form.reset();
+      fetchInvitations();
     } catch (error) {
       logger.error(error);
     }
