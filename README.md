@@ -244,6 +244,12 @@ Invitation(
         "X-Auth-Email": email,
         "X-Auth-Token": token,
     },
+
+  ```
+  invitations = [
+    { id: 1, email: "john@doe.com", expired_at: null, sender_name: "Sam Smith" },
+    { id: 2, email: "oliver@example.com", expired_at: "2024-02-17T11:43:45.634Z", sender_name: "Sam Smith" }
+  ]
   ```
   - Response with all invitations so that we display invitations sent by the current user and other users along with the sender's name.
 
