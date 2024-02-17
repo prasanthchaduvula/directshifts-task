@@ -60,7 +60,7 @@ $ bin/setup
 ```bash
 $ bin/dev
 
-# If any permisson errors like below
+# If any permission errors like below
 # zsh: permission denied: bin/dev
 # or
 # bash : permission denied: bin/dev
@@ -96,7 +96,7 @@ $ foreman start -f Procfile.dev
 
 ##  Code structure
 
-#### High level backend structure
+#### High-level backend structure
 ```
 User(
   id,
@@ -125,9 +125,9 @@ Invitation(
   4. Api::V1::InvitationsController - to invite and see all invitations
 
 * Views (app/views)
-  1. /home - serves the react root component for client side rendering
-  2. /inviations - builds api response for invitations
-  3. /mailers - serves the views for invitaation mailer
+  1. /home - serves the react root component for client-side rendering
+  2. /invitations - builds api response for invitations
+  3. /mailers - serves the views for invitation mailer
 
 * Mailers (app/mailers)
   1. InvitationMailer - logic to send the invitation email
@@ -139,10 +139,10 @@ Invitation(
   1. ApiResponders - to handle api responses and errors.
   2. ApiRescuable - api rescue handlers.
   3. Loggable - rails logger to log exceptions.
-  4. Authenticable - token based authetnication for api endpoints for client side requests.
+  4. Authenticable - token-based authentication for api endpoints for client-side requests.
 
 
-#### High level Client structure
+#### High-level Client structure
 
 - The application is served on a single entry point with `Home#index` where the React Router kicks in and `app/javascript/src/App.jsx` is the application entry component
 
@@ -152,21 +152,21 @@ Invitation(
   3. invitation.js - api endpoints related to create and view invitations.
 
 * components (views - `app/javascript/src/components`)
-  1. Main - Holds all the logic to routing and rendering components.
-  2. Authentication - high level view components of SignUp, SignIn.
-  3. Home - Renders Invite (to send the invitation) and list of all the invitations(if the invitation is sent by you then Sender Name is yours other wise it will display the the sender name of others who sent the invitation).
+  1. Main - Holds all the logic for routing and rendering components.
+  2. Authentication - high-level view components of SignUp, and SignIn.
+  3. Home - Renders Invite (to send the invitation) and list of all the invitations(if you send the invitation then the Sender Name is yours otherwise it will display the the sender name of others who sent the invitation).
   4. NavBar - Renders the app header component with app namer and logout options.
 
 * common (common components - `app/javascript/src/common`)
-  1. Toastr - Display toast mesages for success and errors.
+  1. Toastr - Display toast messages for success and errors.
   2. logger - js logger to log catch errors.
 
 * context (`app/javascript/src/contexts`)
   1. auth.jsx - Maintains authentication related context.
-  2. user.jsx - Maintains user related context.
+  2. user.jsx - Maintains user-related context.
 
 * reducers (`app/javascript/src/reducers`)
-  1. auth.js - sets authetnication.
+  1. auth.js - sets authentication.
   2. user.js - sets the user.
 
 * routes (serves both route and relative components - `app/javascript/src/routes`)
@@ -174,7 +174,7 @@ Invitation(
   2. dashboard.js - Home route `/`.
 
 * utils (has utility components/functions  - `app/javascript/src/utils`)
-  1. storage.js - Handles the client side storage.
+  1. storage.js - Handles the client-side storage.
 
 
 #### APIs (Sign Up/Sign In)
@@ -231,7 +231,7 @@ Invitation(
   }
   ```
   - Sample successful response status: `201 Created`
-  - Response should contain notice which will inform the user with toastr message
+  - Response should contain a notice which will inform the user with a toastr message
 
 * Invitations
   - Path: `GET /api/v1/invitations`
@@ -245,16 +245,16 @@ Invitation(
         "X-Auth-Token": token,
     },
   ```
-  - Response with all invitations so that we display invitaions sent by the current user and other users along with sender name.
+  - Response with all invitations so that we display invitations sent by the current user and other users along with the sender's name.
 
 ### Scope for improvement
-- The invitation architecture is kept simple and it relies currently on invited user signing up with the exact email added by the inviter user. In a more complex would, we could use something like Invitation code to keep track of the invite.
-- Currently we are not tracking the emails status. Its better to handle the email delivery errors for better tracking.
-- The mailer is not integrated, we could use an SMTP service or pre-provided templates with Mailchimp, etc for real world use cases.
+- The invitation architecture is kept simple and relies on invited users signing up with the email added by the inviter user. In a more complex would, we could use something like an Invitation code to keep track of the invite.
+- Currently, we are not tracking the email's status. It's better to handle the email delivery errors for better tracking.
+- The mailer is not integrated, we could use an SMTP service or pre-provided templates with Mailchimp, etc for real-world use cases.
 
-- On the client, the structure is very simple. As the app grows more complex, we could separate components from views by having more styyled components and common components where views would be dumb components.
-- I'm using the default material-ui theme, it can be deocrated more for better UI.
-- The client currently shows the backend validation error message with the help of toastr but we can introduce frontend validation with help of formaik abd we can imporve the toastr messages.
+- On the client, the structure is very simple. As the app grows more complex, we could separate components from views by having more styled-components and common components where views would be dumb components.
+- I'm using the default material-ui theme, it can be decorated more for better UI.
+- The client currently shows the backend validation error message with the help of toastr but we can introduce frontend validation with the help of Formaik and we can improve the toastr messages.
 
 
 
