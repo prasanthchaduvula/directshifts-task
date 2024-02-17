@@ -45,3 +45,9 @@ en:
     create:
       success:
         message: Invitation Sent successfully
+    exists:
+      invitation:
+        message: Invitation already exists
+      user:
+        message: User already exists
+    
