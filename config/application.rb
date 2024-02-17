@@ -21,6 +21,10 @@ module DirectshiftsTask
 
     config.react.server_renderer_extensions = ["jsx", "js", "tsx", "ts"]
 
+    if (email_delivery_method = ENV["EMAIL_DELIVERY_METHOD"])
+      config.action_mailer.delivery_method = email_delivery_method.to_sym
+    end
+
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.

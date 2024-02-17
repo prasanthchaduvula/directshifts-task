@@ -6,5 +6,7 @@ namespace :api, defaults: { format: :json } do
       post "login", to: "sessions#create", as: "login"
       delete "logout", to: "sessions#destroy", as: "logout"
     end
+
+    resources :invitations, only: [:index, :create]
   end
 end

@@ -15,6 +15,12 @@ class User < ApplicationRecord
 
   before_save :ensure_authentication_token_is_present
 
+  after_create :verify_invitation
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   private
 
     def ensure_authentication_token_is_present
@@ -28,5 +34,12 @@ class User < ApplicationRecord
         token = Devise.friendly_token
         break token unless User.where(authentication_token: token).first
       end
+    end
+
+    def verify_invitation
+      invitation = Invitation.find_by_email(email)
+      return unless invitation
+
+      invitation.update(expired_at: Time.zone.now)
     end
 end

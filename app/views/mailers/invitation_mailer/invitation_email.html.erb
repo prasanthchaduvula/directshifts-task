@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+  </head>
+  <body style="color:#1D1A31">
+    <h3>Hi, <%= @recipient %></h3>
+    <p>
+      You have been invited to DirectShifts by <%= @sender_name %>
+    </p>
+    <p>
+      To sign up, just follow <%= link_to 'this link', "#{root_url}signup" %> and create an account with given email.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+
+    <p>Cheers,</p>
+    <p>Team DirectShifts</p>
+  </body>
+</html>
