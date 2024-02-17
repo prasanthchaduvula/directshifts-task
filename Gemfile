@@ -56,6 +56,12 @@ group :development, :test do
   gem "erb_lint", require: false, git: "https://github.com/Shopify/erb-lint.git", branch: "main"
   gem "rubocop", require: false
   gem "rubocop-rails", require: false
+
+  # Rails integration for factory-bot
+  gem "factory_bot_rails"
+
+  # For auto-generating demo data
+  gem "faker", "~> 2.19"
 end
 
 group :development do
