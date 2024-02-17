@@ -20,11 +20,11 @@ class Api::V1::InvitationsController < Api::V1::BaseController
 
     def invalid_invitation!
       if User.exists?(email: invitation_params[:email])
-        render json: { error: t("invitation.exists.user.message") }, status: :unprocessable_entity
+        render json: { message: t("invitation.exists.user.message") }, status: 409
       end
 
       if Invitation.exists?(email: invitation_params[:email])
-        render json: { error: t("invitation.exists.invitation.message") }, status: :unprocessable_entity
+        render json: { message: t("invitation.exists.invitation.message") }, status: 409
       end
     end
 end

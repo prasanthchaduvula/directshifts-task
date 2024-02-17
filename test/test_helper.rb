@@ -8,10 +8,12 @@ class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors)
 
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  # fixtures :all
-
   include FactoryBot::Syntax::Methods
 
-  # Add more helper methods to be used by all tests here...
+  def headers(user, options = {})
+    {
+      "X-Auth-Token" => user.authentication_token,
+      "X-Auth-Email" => user.email
+    }.merge(options)
+  end
 end
