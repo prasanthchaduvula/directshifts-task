@@ -264,13 +264,13 @@ Invitation(
   - Response with all invitations so that we display invitations sent by the current user and other users along with the sender's name.
 
 ### Scope for improvement
-- The invitation architecture is kept simple and relies on invited users signing up with the email added by the inviter user. In a more complex would, we could use something like an Invitation code to keep track of the invite.
+- The invitation architecture is kept simple and relies on invited users signing up with the email added by the inviter user. In a more complex would, we could use something like an Invitation token to keep track of the invite andf resend invitations.
 - Currently, we are not tracking the email's status. It's better to handle the email delivery errors for better tracking.
 - The mailer is not integrated, we could use an SMTP service or pre-provided templates with Mailchimp, etc for real-world use cases.
 
 - On the client, the structure is very simple. As the app grows more complex, we could separate components from views by having more styled-components and common components where views would be dumb components.
 - I'm using the default material-ui theme, it can be decorated more for better UI.
-- The client currently shows the backend validation error message with the help of toastr but we can introduce frontend validation with the help of Formaik and we can improve the toastr messages.
+- The client currently shows the backend validation error message with the help of toastr but we can introduce frontend validation with the help of Formik and we can improve the toastr messages.
 
 
 
